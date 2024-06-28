@@ -1,5 +1,5 @@
 #include<stdio.h>
-#define MapNum 3
+#define MapNum 3 //
 #define W 10	//W(Width:•)
 #define H 5		//H(Height:‚‚³)
 typedef struct {
