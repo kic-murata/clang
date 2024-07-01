@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 enum BitState
 {
 	Base = 0,          //00000000
