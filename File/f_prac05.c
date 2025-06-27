@@ -5,8 +5,8 @@
 typedef struct {
 	int m_map[H][W];
 } Map;
-void SetMap(char*filename,Map* m);
-void DrawMap(Map m);
+void setMap(char*filename,Map* m);
+void drawMap(Map m);
 main()
 {
 	Map MapData;
@@ -15,10 +15,10 @@ main()
 	int select;
 	printf("表示するマップ(0,1,2)>");
 	scanf("%d", &select);
-	SetMap(MapFileName[select], &MapData);
-	DrawMap(MapData);
+	setMap(MapFileName[select], &MapData);
+	drawMap(MapData);
 }
-void SetMap(char* filename, Map* m) {
+void setMap(char* filename, Map* m) {
 	FILE* fp;
 	char ch;
 	int i, j;
@@ -33,7 +33,7 @@ void SetMap(char* filename, Map* m) {
 		fclose(fp);
 	}
 }
-void DrawMap(Map m) {
+void drawMap(Map m) {
 	int i, j;
 	for (i = 0; i < H; i++) {
 		for (j = 0; j < W; j++) {

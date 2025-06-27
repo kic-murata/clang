@@ -11,9 +11,9 @@ enum BitState
 	AtkDown = 1 << 5   //00100000
 };
 typedef unsigned int UINT;
-void DisplayStatus(UINT s);
-void ChangeFlag(UINT* s);
-void ClearFlag(UINT* s);
+void DisplayStatus(UINT);
+void ChangeFlag(UINT*);
+void ClearFlag(UINT*);
 main() {
 	UINT MyState = Base;
 	ChangeFlag(&MyState);
@@ -51,33 +51,38 @@ void ChangeFlag(UINT* s) {
 	while (1) {
 		DisplayStatus(*s);
 		printf("‚Ç‚Ìó‘Ô‚ð•t—^‚µ‚Ü‚·‚©H\n");
-		printf("1:“Å 2:‡–° 3:–ƒáƒ 4:‰Î 5:UŒ‚ª 6:UŒ‚«  0:I—¹>");
+		printf("%d:“Å %d:‡–° %d:–ƒáƒ %d:‰Î %d:UŒ‚ª %d:UŒ‚«  %d:‘SƒNƒŠƒA>"
+		,Poison, Sleep, Paralysis, Burn, AtkUp, AtkDown, Base);
 		scanf("%d", &a);
 		if (a == 0) {
-			break;
+			*s = Base;
 		}
-		switch (a) {
-		case 1:
-			*s |= Poison;
-			break;
-		case 2:
-			*s |= Sleep;
-			break;
-		case 3:
-			*s |= Paralysis;
-			break;
-		case 4:
-			*s |= Burn;
-			break;
-		case 5:
-			*s |= AtkUp;
-			break;
-		case 6:
-			*s |= AtkDown;
-			break;
-		default:	//1~6ˆÈŠO‚Ì’l‚Ì‚Æ‚«
-			break;
+		else {
+			*s |= a;
 		}
+
+		//switch (a) {
+		//case Poison:
+		//	*s |= Poison;
+		//	break;
+		//case Sleep:
+		//	*s |= Sleep;
+		//	break;
+		//case Paralysis:
+		//	*s |= Paralysis;
+		//	break;
+		//case Burn:
+		//	*s |= Burn;
+		//	break;
+		//case AtkUp:
+		//	*s |= AtkUp;
+		//	break;
+		//case AtkDown:
+		//	*s |= AtkDown;
+		//	break;
+		//default:	//1~6ˆÈŠO‚Ì’l‚Ì‚Æ‚«
+		//	break;
+		//}
 	}
 }
 void ClearFlag(UINT* s) {
